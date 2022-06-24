@@ -1,0 +1,152 @@
+{
+    "description": {
+      "X": [
+        "Gender",
+        "Income_Category",
+        "Months_Inactive_12_mon",
+        "Contacts_Count_12_mon",
+        "Customer_Age",
+        "CLIENTNUM",
+        "Attrition_Flag",
+        "Dependent_count",
+        "Education_Level",
+        "Marital_Status",
+        "Card_Category",
+        "Months_on_book",
+        "Total_Relationship_Count",
+        "Credit_Limit",
+        "Total_Revolving_Bal",
+        "Avg_Open_To_Buy",
+        "Total_Amt_Chng_Q4_Q1",
+        "Total_Trans_Amt",
+        "Total_Trans_Ct",
+        "Total_Ct_Chng_Q4_Q1",
+        "Avg_Utilization_Ratio",
+        "Bayes_1",
+        "Bayes_2"
+      ],
+      "final_columns": [
+        "Gender",
+        "Income_Category",
+        "Months_Inactive_12_mon",
+        "Contacts_Count_12_mon",
+        "Customer_Age"
+      ],
+      "y": "Attrition_Flag",
+      "metrics": "accuracy_score"
+    },
+    "operations":[
+        {
+            "operation_number":1,
+            "operation_name":"replace",
+            "params":{
+                "in_columns":[
+                        "Gender"
+                ],
+                "old_values":[
+                  [
+                    "F"
+                  ],
+                  [
+                    "M"
+                  ]
+                ],
+                "new_values":[
+                        0,
+                        1
+                ],
+                "inplaces":[
+                    "True",
+                    "True"
+                ]
+            }
+        },
+        {
+            "operation_number":2,
+            "operation_name":"replace",
+            "params":{
+                "in_columns":[
+                    "Marital_Status"
+                ],
+                "old_values":[
+                      "Unknown",
+                      "Less than $40K",
+                      "$40K - $60K",
+                      "$60K - $80K",
+                      "$80K - $120K",
+                      "$120K +"
+                ],
+                "new_values":[
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                ],
+                "inplaces":[
+                    "True"
+                ]
+            }
+        },
+        {
+            "operation_number":3,
+            "operation_name":"bins",
+            "params":{
+                "in_columns":[
+                    "Customer_Age"
+                ],
+                "methods":[
+                    "cut"
+                ],
+                "bins_nums":[
+                    3
+                ],
+                "inplaces":[
+                    "True"
+                ]
+            }
+        },
+        {
+            "operation_number":4,
+            "operation_name":"drop_columns",
+            "params":{
+                "in_columns":[
+                    "CLIENTNUM",
+                    "Attrition_Flag",
+                    "Dependent_count",
+                    "Education_Level",
+                    "Marital_Status",
+                    "Card_Category",
+                    "Months_on_book",
+                    "Total_Relationship_Count",
+                    "Credit_Limit",
+                    "Total_Revolving_Bal",
+                    "Avg_Open_To_Buy",
+                    "Total_Amt_Chng_Q4_Q1",
+                    "Total_Trans_Amt",
+                    "Total_Trans_Ct",
+                    "Total_Ct_Chng_Q4_Q1",
+                    "Avg_Utilization_Ratio",
+                    "Bayes_1",
+                    "Bayes_2"
+                ]
+            }
+        },
+        {
+            "operation_number":5,
+            "operation_name":"encode_labels",
+            "params":{
+                "in_columns":[
+                    "Gender",
+                    "Income_Category",
+                    "Months_Inactive_12_mon",
+                    "Contacts_Count_12_mon",
+                    "Customer_Age"
+                ]
+            }
+        }
+    ]
+}
+
+
