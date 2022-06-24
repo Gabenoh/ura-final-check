@@ -27,7 +27,7 @@ class DataLoader(object):
                         "Card_Category", "Months_on_book", "Total_Relationship_Count", "Credit_Limit",
                         "Total_Revolving_Bal", "Avg_Open_To_Buy", "Total_Amt_Chng_Q4_Q1", "Total_Trans_Amt",
                         "Total_Trans_Ct", "Total_Ct_Chng_Q4_Q1", "Avg_Utilization_Ratio", "Bayes_1", "Bayes_2"]
-        self.dataset = self.dataset.drop(columns_drop)
+        self.dataset = self.dataset.drop(columns_drop, axis=1)
         self.dataset = self.dataset.astype(int)
         self.dataset["Income_Category"] = self.dataset["Income_Category"] / self.dataset["Income_Category"].max()
         self.dataset["Contacts_Count_12_mon"] = self.dataset["Contacts_Count_12_mon"] / self.dataset[
