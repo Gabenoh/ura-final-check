@@ -23,12 +23,16 @@ class DataLoader(object):
         le.fit(self.dataset['Income_Category'])
         self.dataset['Income_Category'] = le.transform(self.dataset['Income_Category'])
 
-        true_columns = ['Customer_Age', 'Income_Category', 'Gender',
-                        'Months_Inactive_12_mon', 'Contacts_Count_12_mon']
-
-        self.dataset = self.dataset[true_columns].astype(int)
+        columns_drop = ["CLIENTNUM", "Attrition_Flag", "Dependent_count", "Education_Level", "Marital_Status",
+                        "Card_Category", "Months_on_book", "Total_Relationship_Count", "Credit_Limit",
+                        "Total_Revolving_Bal", "Avg_Open_To_Buy", "Total_Amt_Chng_Q4_Q1", "Total_Trans_Amt",
+                        "Total_Trans_Ct", "Total_Ct_Chng_Q4_Q1", "Avg_Utilization_Ratio", "Bayes_1", "Bayes_2"]
+        self.dataset = self.dataset.drop(columns_drop)
+        self.dataset = self.dataset.astype(int)
         self.dataset["Income_Category"] = self.dataset["Income_Category"] / self.dataset["Income_Category"].max()
-        self.dataset["Contacts_Count_12_mon"] = self.dataset["Contacts_Count_12_mon"] / self.dataset["Contacts_Count_12_mon"].max()
-        self.dataset["Months_Inactive_12_mon"] = self.dataset["Months_Inactive_12_mon"] / self.dataset["Months_Inactive_12_mon"].max()
+        self.dataset["Contacts_Count_12_mon"] = self.dataset["Contacts_Count_12_mon"] / self.dataset[
+            "Contacts_Count_12_mon"].max()
+        self.dataset["Months_Inactive_12_mon"] = self.dataset["Months_Inactive_12_mon"] / self.dataset[
+            "Months_Inactive_12_mon"].max()
 
         return self.dataset
