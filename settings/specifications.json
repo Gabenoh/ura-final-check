@@ -38,59 +38,6 @@
     "operations":[
         {
             "operation_number":1,
-            "operation_name":"replace",
-            "params":{
-                "in_columns":[
-                        "Gender"
-                ],
-                "old_values":[
-                  [
-                    "F"
-                  ],
-                  [
-                    "M"
-                  ]
-                ],
-                "new_values":[
-                        0,
-                        1
-                ],
-                "inplaces":[
-                    "True",
-                    "True"
-                ]
-            }
-        },
-        {
-            "operation_number":2,
-            "operation_name":"replace",
-            "params":{
-                "in_columns":[
-                    "Marital_Status"
-                ],
-                "old_values":[
-                      "Unknown",
-                      "Less than $40K",
-                      "$40K - $60K",
-                      "$60K - $80K",
-                      "$80K - $120K",
-                      "$120K +"
-                ],
-                "new_values":[
-                        0,
-                        1,
-                        2,
-                        3,
-                        4,
-                        5
-                ],
-                "inplaces":[
-                    "True"
-                ]
-            }
-        },
-        {
-            "operation_number":3,
             "operation_name":"bins",
             "params":{
                 "in_columns":[
@@ -100,7 +47,7 @@
                     "cut"
                 ],
                 "bins_nums":[
-                    3
+                    6
                 ],
                 "inplaces":[
                     "True"
@@ -108,7 +55,7 @@
             }
         },
         {
-            "operation_number":4,
+            "operation_number":2,
             "operation_name":"drop_columns",
             "params":{
                 "in_columns":[
@@ -134,14 +81,24 @@
             }
         },
         {
-            "operation_number":5,
+            "operation_number":3,
             "operation_name":"encode_labels",
             "params":{
                 "in_columns":[
                     "Gender",
                     "Income_Category",
-                    "Months_Inactive_12_mon",
+                    "Customer_Age"
+                ]
+            }
+        },
+        {
+            "operation_number":4,
+            "operation_name":"normalize",
+            "params":{
+                "in_columns":[
+                    "Income_Category",
                     "Contacts_Count_12_mon",
+                    "Months_Inactive_12_mon",
                     "Customer_Age"
                 ]
             }

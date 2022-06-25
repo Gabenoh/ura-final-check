@@ -12,12 +12,13 @@ from utils import DataLoader
 data_train = pd.read_csv('../data/train.csv')
 data_test = pd.read_csv('../data/val.csv')
 
-train_data = DataLoader()
-train_data.fit(data_train)
-train_data = train_data.load_data()
-test_data = DataLoader()
-test_data.fit(data_train)
-test_data = test_data.load_data()
+train_DL = DataLoader()
+train_DL.fit(data_train)
+train_data = train_DL.load_data()
+
+test_DL = DataLoader()
+test_DL.fit(data_test)
+test_data = test_DL.load_data()
 
 y_data = train_data.Attrition_Flag
 train_data = train_data.drop('Attrition_Flag', axis=1)
