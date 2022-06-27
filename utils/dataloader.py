@@ -32,11 +32,13 @@ class DataLoader(object):
         self.dataset = self.dataset.astype(int)
 
         # Нормалізація данних
-        self.dataset["Income_Category"] = self.dataset["Income_Category"] / self.dataset["Income_Category"].max()
-        self.dataset["Contacts_Count_12_mon"] = self.dataset["Contacts_Count_12_mon"] / self.dataset[
-            "Contacts_Count_12_mon"].max()
-        self.dataset["Months_Inactive_12_mon"] = self.dataset["Months_Inactive_12_mon"] / self.dataset[
-            "Months_Inactive_12_mon"].max()
-        self.dataset["Customer_Age"] = self.dataset["Customer_Age"] / self.dataset["Customer_Age"].max()
+        self.dataset["Income_Category"] = (self.dataset["Income_Category"] - self.dataset["Income_Category"].min()) / \
+                                          (self.dataset["Income_Category"].max() - self.dataset["Income_Category"].min())
+        self.dataset["Contacts_Count_12_mon"] = (self.dataset["Contacts_Count_12_mon"] - self.dataset["Contacts_Count_12_mon"].min()) / \
+                                                self.dataset["Contacts_Count_12_mon"].max() - self.dataset["Contacts_Count_12_mon"].min()
+        self.dataset["Months_Inactive_12_mon"] = (self.dataset["Months_Inactive_12_mon"] - self.dataset["Months_Inactive_12_mon"].min()) / \
+                                                 (self.dataset["Months_Inactive_12_mon"].max() - self.dataset["Months_Inactive_12_mon"].min())
+        self.dataset["Customer_Age"] = (self.dataset["Customer_Age"] - self.dataset["Customer_Age"].min()) / \
+                                       (self.dataset["Customer_Age"].max() - self.dataset["Customer_Age"].min())
 
         return self.dataset
