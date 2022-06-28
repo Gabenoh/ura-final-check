@@ -1,0 +1,53 @@
+{
+            "operation_number":1,
+            "operation_name":"replace",
+            "params":{
+                "in_columns":[
+                        "Gender"
+                ],
+                "old_values":[
+                  [
+                    "F"
+                  ],
+                  [
+                    "M"
+                  ]
+                ],
+                "new_values":[
+                        0,
+                        1
+                ],
+                "inplaces":[
+                    "True",
+                    "True"
+                ]
+            }
+        },
+        {
+            "operation_number":2,
+            "operation_name":"replace",
+            "params":{
+                "in_columns":[
+                    "Marital_Status"
+                ],
+                "old_values":[
+                      "Unknown",
+                      "Less than $40K",
+                      "$40K - $60K",
+                      "$60K - $80K",
+                      "$80K - $120K",
+                      "$120K +"
+                ],
+                "new_values":[
+                        0,
+                        1,
+                        2,
+                        3,
+                        4,
+                        5
+                ],
+                "inplaces":[
+                    "True"
+                ]
+            }
+        },
