@@ -7,7 +7,6 @@
         "Contacts_Count_12_mon",
         "Customer_Age",
         "CLIENTNUM",
-        "Attrition_Flag",
         "Dependent_count",
         "Education_Level",
         "Marital_Status",
@@ -60,7 +59,6 @@
             "params":{
                 "in_columns":[
                     "CLIENTNUM",
-                    "Attrition_Flag",
                     "Dependent_count",
                     "Education_Level",
                     "Marital_Status",
