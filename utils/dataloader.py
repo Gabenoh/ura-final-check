@@ -10,7 +10,7 @@ class DataLoader(object):
 
     def load_data(self):
 
-        self.dataset['Customer_Age'] = pd.qcut(self.dataset['Customer_Age'], 6)
+        self.dataset['Customer_Age'] = pd.cut(self.dataset['Customer_Age'], 5)
         # , "Attrition_Flag"
         columns_drop = ["CLIENTNUM", "Dependent_count", "Education_Level", "Marital_Status",
                         "Card_Category", "Months_on_book", "Total_Relationship_Count", "Credit_Limit",
